@@ -1,5 +1,5 @@
-const NAME = 'Noticias - CSS'
-const DOMAIN = `https:/css-tricks.com`;
+const NAME = 'css-tricks'
+const DOMAIN = `https:/${NAME}.com`
 const SITE = `${DOMAIN}/wp-json`
 const API_WP = `${SITE}/wp/v2`
 const PER_PAGE = 9
