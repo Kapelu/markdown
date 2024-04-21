@@ -2,13 +2,13 @@ export function Menu(){
     const $menu = document.createElement('nav')
     $menu.classList.add('menu')
     $menu.innerHTML = `
-        <a href="#/">HOME</a>
+        <a href="/">HOME</a>
         <span></span>
-        <a href="#/search">Búsqueda</a>
+        <a href="/?s=">Búsqueda</a>
         <span></span>
         <a href="#/contact">Contact</a>
         <span></span>
-    `
+    `;
     return $menu
 }
 
