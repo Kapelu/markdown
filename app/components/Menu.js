@@ -4,11 +4,11 @@ export function Menu(){
     $menu.innerHTML = `
         <a href="/">HOME</a>
         <span></span>
-        <a href="/?s=">Búsqueda</a>
+        <a href="#/search">Búsqueda</a>
         <span></span>
         <a href="#/contact">Contact</a>
         <span></span>
-    `;
+    `
     return $menu
 }
 
