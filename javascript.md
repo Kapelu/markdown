@@ -1,7 +1,7 @@
 ---
-title: 'titulo'
-description: 'Descripcion'
-date: '1979-02-17'
+title: 'Conceptos de Javascript'
+description: 'Conceptos fundamentales de Javascript, explicados y con ejemplos'
+date: '2022-02-16'
 tag: 'Kapelu'
 image: '../public/images'
 ---
