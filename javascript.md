@@ -3,7 +3,6 @@ title: 'Conceptos de Javascript'
 description: 'Conceptos fundamentales de Javascript, explicados y con ejemplos'
 date: '2022-02-16'
 tag: 'Kapelu'
-image: '../public/images'
 ---
 
 <article style={{ borderRadius: '.5rem', padding: '2rem 1rem', backgroundColor: '#cccccc90',}}>
