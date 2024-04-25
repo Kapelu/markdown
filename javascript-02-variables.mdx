@@ -1,0 +1,283 @@
+---
+title: 'Javascript - ¿Qué es?'
+description: 'Qué es JavaScript y que podemos hacer con él.'
+date: '2022-02-20'
+tag: 'Kapelu'
+---
+
+<article>
+<h1>JavaScript - Variables</h1>
+
+Una variable es un “almacén con un nombre” para guardar datos. Podemos usar variables para almacenar todo tipo datos.
+
+Para generar una variable en JavaScript, se crea anteponiendo al nombre de nuestra variable la palabra reservadas `var`, `let` y `const`, tecnicamente hacen lo mismo aunque hay una diferencia enorme entre ellas. mas adelante veremos esas diferencias.
+
+La siguiente declaración generamos una variable con el nombre “message” y le asignamos un valor a tráves del operador de asignación "`=`".
+
+```js
+let message= 'Hola'
+```
+
+La cadena ahora está almacenada en el área de la memoria asociada con la variable. La podemos acceder a traves del comando `console.log`, utilizando el nombre de la variable:
+```js
+let message;
+message = 'Hola!';
+console.log(message); // muestra el contenido de la variable
+```
+También podemos declarar variables múltiples en una sola línea:
+
+```js
+let user = 'John', age = 25, message = 'Hola';
+```
+> Esto puede parecer más corto, pero no lo recomiendo. Por el bien de la legibilidad, por favor utiliza una línea por variable.
+
+Técnicamente, todas estas variantes hacen lo mismo. Así que, es cuestión de gusto personal y preferencia estética.
+
+<span>
+
+⚠ `var` en vez de `let`
+En scripts más viejos, a veces se encuentra otra palabra clave: `var` en lugar de `let`:
+```js
+var mensaje = 'Hola';
+```
+La palabra clave var es casi lo mismo que let. También hace la declaración de una variable, aunque de un modo ligeramente distinto, y más antiguo.
+
+Para poder entender mejor la diferencia entre var, let y const te recomiendo leer este articulo en [Freecodecamp](https://www.freecodecamp.org/espanol/news/var-let-y-const-cual-es-la-diferencia/).
+
+</span>
+
+<h3>Una analogía de la vida real</h3>
+
+Podemos comprender fácilmente el concepto de una “variable” si nos la imaginamos como una “caja” con una etiqueta de nombre único pegada en ella.
+
+Por ejemplo, podemos imaginar la variable `message` como una caja etiquetada `"message"` con el valor `"Hola!"` adentro:
+
+![](./images/javascript/02-variables/02-variable.svg)
+
+Podemos introducir cualquier valor a la caja.
+
+También la podemos cambiar cuantas veces queramos:
+```js
+let message;
+message = 'Hola!';
+message = 'Mundo!'; // valor alterado
+console.log(message);
+```
+
+Cuando el valor ha sido alterado, los datos antiguos serán removidos de la variable:
+
+![](./images/javascript/02-variables/02-variable-change.svg)
+
+También podemos declarar dos variables y copiar datos de una a la otra.
+
+```js
+let hello = 'Hola mundo!'
+let message
+message = hello  // copia 'Hola mundo' de hello a message
+
+console.log(hello); // Hola mundo!
+// Ahora, ambas variables contienen los mismos datos
+console.log(message); // Hola mundo!
+```
+
+<h2>Nombramiento de variables</h3>
+
+Existen dos limitaciones de nombre de variables en JavaScript:
+
+* El nombre únicamente puede incluir letras, dígitos, o los símbolos $ y _.
+* El primer carácter no puede ser un dígito.
+* Ejemplos de nombres válidos:
+
+```js
+let userName
+let test123
+```
+Cuando el nombre contiene varias palabras, se suele usar el estilo camelCase (capitalización en camello), donde las palabras van pegadas una detrás de otra, con cada inicial en mayúscula: miNombreMuyLargo.
+
+Es interesante notar que el símbolo del dólar '$' y el guion bajo '_' también se utilizan en nombres. Son símbolos comunes, tal como las letras, sin ningún significado especial.
+
+Los siguientes nombres son válidos:
+```js
+let $ = 1 // Declara una variable con el nombre "$"
+let _ = 2 // y ahora una variable con el nombre "_"
+alert($ + _) // 3
+```
+Ejemplos de nombres incorrectos:
+```js
+let 1a // no puede iniciar con un dígito
+let my-name // los guiones '-' no son permitidos en nombres
+```
+
+_**La Capitalización es Importante**_
+
+Dos variables con nombres manzana y MANZANA son variables distintas.
+
+Las letras que no son del alfabeto inglés están permitidas, pero no se recomiendan
+Es posible utilizar letras de cualquier alfabeto, incluyendo letras del cirílico, logogramas chinos, etc.:
+
+```js
+let имя = '...'
+let 我 = '...'
+```
+
+Técnicamente, no existe ningún error aquí. Tales nombres están permitidos, pero existe una tradición internacional de utilizar inglés en el nombramiento de variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Puede ser necesario que gente de otros países deba leerlo en algún momento.
+
+_**Nombres reservados**_
+
+Hay una lista de palabras reservadas, las cuales no pueden ser utilizadas como nombre de variable porque el lenguaje en sí las utiliza.
+
+Por ejemplo: `let`, `class`, `return`, y `function` están reservadas.
+
+El siguiente código nos da un error de sintaxis:
+```js
+let let = 5; // no se puede le nombrar "let" a una variable  ¡Error!
+let return = 5; // tampoco se le puede nombrar "return", ¡Error!
+```
+
+_***Nombrar cosas correctamente**_
+
+Estando en el tema de las variables, existe una cosa de mucha importancia.
+
+Una variable debe tener un nombre claro, de significado evidente, que describa el dato que almacena.
+
+Nombrar variables es una de las habilidades más importantes y complejas en la programación. Un vistazo rápido a el nombre de las variables nos revela cuál código fue escrito por un principiante o por un desarrollador experimentado.
+
+En un proyecto real, la mayor parte de el tiempo se pasa modificando y extendiendo una base de código en vez de empezar a escribir algo desde cero. Cuando regresamos a algún código después de hacer algo distinto por un rato, es mucho más fácil encontrar información que está bien etiquetada. O, en otras palabras, cuando las variables tienen nombres adecuados.
+
+Por favor pasa tiempo pensando en el nombre adecuado para una variable antes de declararla. Hacer esto te da un retorno muy sustancial.
+
+_Algunas reglas buenas para seguir_:
+
+* Use términos legibles para humanos como userName p shoppingCart.
+* Evite abreviaciones o nombres cortos a, b, c, al menos que en serio sepa lo que está haciendo.
+* Cree nombres que describen al máximo lo que son y sean concisos. Ejemplos que no son adecuados son data y value. Estos nombres no nos dicen nada. Estos solo está bien usarlos en el contexto de un código que deje excepcionalmente obvio cuál valor o cuales datos está referenciando la variable.
+* Acuerda en tu propia mente y con tu equipo cuáles términos se utilizarán. Si a un visitante se le llamara “user”, debemos llamar las variables relacionadas currentUser o newUser en vez de currentVisitor o newManInTown.
+
+¿Suena simple? De hecho lo es, pero no es tan fácil crear nombres de variables descriptivos y concisos a la hora de practicar. Inténtelo.
+
+<h2>Ámbito de variables</h2>
+
+Cuando declaras una variable fuera de cualquier función, se denomina variable global, porque está disponible para cualquier otro código en el documento actual. Cuando declaras una variable dentro de una función, se llama variable local, porque solo está disponible dentro de esa función.
+
+JavaScript anterior a ECMAScript 2015 no tiene el ámbito de la declaración de bloque. Más bien, una variable declarada dentro de un bloque es local a la función (o ámbito global) en el que reside el bloque.
+
+Por ejemplo, el siguiente código registrará 5, porque el ámbito de x es el contexto global (o el contexto de la función si el código es parte de una función). El ámbito de x no se limita al bloque de instrucciones if inmediato.
+
+```JS
+Copy to Clipboard
+if (true) {
+  var x = 5;
+}
+console.log(x); // x es 5
+```
+Este comportamiento cambia cuando se usa la declaración let (introducida en ECMAScript 2015).
+
+```JS
+Copy to Clipboard
+if (true) {
+  let y = 5;
+}
+console.log(y); // ReferenceError: y no está definida
+```
+
+<h2>Elevación de variables (hoisting)</h2>
+
+Otra cosa inusual acerca de las variables en JavaScript es que puedes hacer referencia a una variable declarada más tarde, sin obtener una excepción.
+
+Este concepto se conoce como elevación. Las variables en JavaScript son, en cierto sentido, "elevadas" (o "izadas") a la parte superior de la función o declaración. Sin embargo, las variables que se elevan devuelven un valor de undefined. Entonces, incluso si la declaras e inicias después de usarla o hacer referencia a esta variable, todavía devuelve undefined.
+
+```JS
+Copy to Clipboard
+//* Ejemplo 1
+console.log(x === undefined); // true
+var x = 3;
+
+//* Ejemplo 2
+var myVar = "my value" // devolverá un valor de undefined
+
+(function () {
+  console.log(myVar); // undefined
+  var myVar = "valor local";
+})();
+```
+Los ejemplos anteriores se interpretarán de la misma manera que:
+
+JS
+Copy to Clipboard
+/**
+ * Ejemplo 1
+ */
+var x;
+console.log(x === undefined); // true
+x = 3;
+
+/**
+ * Ejemplo 2
+ */
+var myVar = "my value";
+
+(function () {
+  var myVar;
+  console.log(myVar); // undefined
+  myVar = "valor local";
+})();
+Debido a la elevación, todas las declaraciones var en una función se deben colocar lo más cerca posible de la parte superior de la función. Esta buena práctica aumenta la claridad del código.
+
+En ECMAScript 2015, let y const se elevan pero no se inician. Hacer referencia a la variable en el bloque antes de la declaración de la variable da como resultado un ReferenceError, porque la variable está en una "zona muerta temporal" desde el inicio del bloque hasta que se procesa la declaración.
+
+JS
+Copy to Clipboard
+console.log(x); // ReferenceError
+let x = 3;
+
+<h2>Pasando variables por referencia o por valor</h2>
+
+Hay dos formas de pasar variables en cualquier lenguaje de programación, en algunos podemos elegir la forma nosotros pero en JavaScript el intérprete elige la forma él mismo.
+
+Las dos formas son, por valor o por referencia. Veamos la siguiente animación:
+
+![ValueReference](/images/javascript/01-fundamentos/volor-referencia.gif)
+
+Cuando pasamos algo por referencia, estamos pasando una _referencia_ o un puntero al objeto. Por lo tanto, cualquier cambio que hagamos a esa referencia, se va a ver reflejado en el objeto original. En el ejemplo, pasamos una referencia a la taza y en nuestra función la llenamos de café. Al ser una referencia al objeto `cup`, vemos que se ve reflejado el cambio en ella (se llena de café) ya que son el **mismo** objeto!.
+
+En cambio, cuando pasamos algo por valor, estamos pasando el elemento por sí mismo, o una copia de él. En el ejemplo de la tasa, pasamos la tasa por valor, es decir que pasamos una tasa nueva, que existe por si misma (no es una referencia, si no la tasa misma). Por eso, cuando llenamos esa tasa de café, la otra se mantiene igual, ya que son dos _objetos distintos_.
+
+En lenguajes como _C++_ el programador puede decidir si enviar el objeto en sí (por valor) o enviar una referencia al objeto (por referencia). En JavaScript, según qué cosa estemos pasando, el intérprete decide si es por valor o referencia. Básicamente, si pasamos un valor primitivo (números, strings, etc.. ) estos se pasan por _valor_, pero si pasamos un objeto (cualquier objeto, incluso funciones) este se pasa _por referencia_. Podemos probar este comportamiento:
+
+```javascript
+var a = 1,
+  b = 2;
+
+a = b;
+b = 1;
+
+console.log(a);
+// Como se pasó el valor de `b` y no la referencia,
+// cuando cambiamos b no impacta en el valor de a.
+```
+
+```javascript
+var a;
+var b = { nombre: "hola" };
+
+a = b;
+
+b.nombre = "Chao";
+
+console.log(a.nombre); // 'Chao'
+// Cuando se hizo la asignación se pasó la referencia de b, por lo tanto
+// cuando cambiamos la propiedad nombre de b, se ve reflejado en a
+// porque ambas variables "apuntan" al mismo objeto en memoria
+```
+<h2>En Resumen</h2>
+
+Podemos declarar variables para almacenar datos al utilizar las palabra clave `var`, `let`, o `const`.
+
+`let` – es la forma moderna de declaración de una variable.
+`var` – es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto. Cubriremos sus sutiles diferencias con `let` en el capítulo La vieja "var", por si lo necesitaras.
+`const` – es como `let`, pero el valor de la variable no puede ser alterado.
+Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.
+
+---
+Vamos con el siguiente tema [TIPOS DE DATOS](/javascript-fundamentos-tipos-de-datos.md.md)
+</article>
